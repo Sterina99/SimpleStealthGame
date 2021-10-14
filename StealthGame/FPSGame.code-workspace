@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "FPSGame",
+			"path": "."
+		},
+		{
+			"name": "UE4",
+			"path": "D:\\EpicGames\\UE_4.27"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"C_Cpp.default.forcedInclude": [
+			"${default}",
+			"D:\\Private\\LearningC++\\SimpleStealthGame\\StealthGame\\Intermediate\\Build\\Win64\\UE4Editor\\Development\\FPSGame\\Definitions.FPSGame.h",
+			"D:\\Private\\LearningC++\\SimpleStealthGame\\StealthGame\\Intermediate\\Build\\Win64\\FPSGameEditor\\Development\\Engine\\SharedPCH.Engine.h"
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	}
+}
