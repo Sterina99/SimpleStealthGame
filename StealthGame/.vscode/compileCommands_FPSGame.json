@@ -123,5 +123,15 @@
         "file": "d:\\\\Private\\\\LearningC++\\\\SimpleStealthGame\\\\StealthGame\\\\Source\\\\FPSGame\\\\Private\\\\FPSGameStateBase.cpp",
         "command": "cl.exe @\"D:\\Private\\LearningC++\\SimpleStealthGame\\StealthGame\\.vscode\\compileCommands_FPSGame\\FPSGame.210.rsp\"",
         "directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\Private\\\\LearningC++\\\\SimpleStealthGame\\\\StealthGame\\\\Source\\\\FPSGame\\\\Public\\\\FPSPlayerController.h",
+        "command": "cl.exe @\"D:\\Private\\LearningC++\\SimpleStealthGame\\StealthGame\\.vscode\\compileCommands_FPSGame\\FPSGame.210.rsp\"",
+        "directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "d:\\\\Private\\\\LearningC++\\\\SimpleStealthGame\\\\StealthGame\\\\Source\\\\FPSGame\\\\Private\\\\FPSPlayerController.cpp",
+        "command": "cl.exe @\"D:\\Private\\LearningC++\\SimpleStealthGame\\StealthGame\\.vscode\\compileCommands_FPSGame\\FPSGame.210.rsp\"",
+        "directory": "D:\\EpicGames\\UE_4.27\\Engine\\Source"
     }
 ]

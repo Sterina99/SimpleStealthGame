@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class APawn;
 #ifdef FPSGAME_FPSPlayerController_generated_h
 #error "FPSPlayerController.generated.h already included, missing '#pragma once' in FPSPlayerController.h"
 #endif
@@ -16,6 +17,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_SPARSE_DATA
 #define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_RPC_WRAPPERS
 #define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_EVENT_PARMS \
+	struct FPSPlayerController_eventOnMissionCompleted_Parms \
+	{ \
+		APawn* InstigaroPawn; \
+		bool bMissionSuccess; \
+	};
+
+
+#define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_CALLBACK_WRAPPERS
 #define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSPlayerController(); \
@@ -61,13 +71,17 @@ public: \
 
 
 #define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_PRIVATE_PROPERTY_OFFSET
-#define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_12_PROLOG
+#define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_12_PROLOG \
+	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_EVENT_PARMS
+
+
 #define StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_PRIVATE_PROPERTY_OFFSET \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_SPARSE_DATA \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_RPC_WRAPPERS \
+	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_CALLBACK_WRAPPERS \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_INCLASS \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_STANDARD_CONSTRUCTORS \
 public: \
@@ -80,6 +94,7 @@ public: \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_PRIVATE_PROPERTY_OFFSET \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_SPARSE_DATA \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_CALLBACK_WRAPPERS \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_INCLASS_NO_PURE_DECLS \
 	StealthGame_Source_FPSGame_Public_FPSPlayerController_h_15_ENHANCED_CONSTRUCTORS \
 private: \

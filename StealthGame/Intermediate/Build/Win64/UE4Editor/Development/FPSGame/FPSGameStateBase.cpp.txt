@@ -7,3 +7,5 @@ D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Server
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
 D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameStateBase.generated.h
 D:\Private\LearningC++\SimpleStealthGame\StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSGameStateBase.generated.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSPlayerController.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSPlayerController.generated.h

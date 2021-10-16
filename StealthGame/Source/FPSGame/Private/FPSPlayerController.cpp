@@ -2,4 +2,7 @@
 
 
 #include "FPSPlayerController.h"
+/* 
+void OnMissionCompleted(APawn* InstigaroPawn, bool bMissionSuccess){
 
+} */

@@ -16,7 +16,8 @@ class FPSGAME_API AFPSGameStateBase : public AGameStateBase
 
 public:
 	//Multicast means that this function will run on all clients/server
+	//UFUNCTION(NetMulticast, Reliable)
+//	void MulticastOnMissionComplete(APawn* InstigatorPawn, bool bMissionSuccess);
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastOnMissionComplete(APawn* InstigatorPawn, bool bMissionSuccess);
-	
 };

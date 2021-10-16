@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSGame_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x1CB5D1CC,
+				0x2D3E7827,
 				0xEA3AD896,
 				METADATA_PARAMS(nullptr, 0)
 			};

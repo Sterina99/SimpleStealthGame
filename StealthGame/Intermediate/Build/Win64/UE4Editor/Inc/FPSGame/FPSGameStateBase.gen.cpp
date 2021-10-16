@@ -67,9 +67,9 @@ void EmptyLinkFunctionForGeneratedCodeFPSGameStateBase() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete_Statics::Function_MetaDataParams[] = {
-		{ "Comment", "//Multicast means that this function will run on all clients/server\n" },
+		{ "Comment", "//Multicast means that this function will run on all clients/server\n//UFUNCTION(NetMulticast, Reliable)\n//\x09void MulticastOnMissionComplete(APawn* InstigatorPawn, bool bMissionSuccess);\n" },
 		{ "ModuleRelativePath", "Public/FPSGameStateBase.h" },
-		{ "ToolTip", "Multicast means that this function will run on all clients/server" },
+		{ "ToolTip", "Multicast means that this function will run on all clients/server\nUFUNCTION(NetMulticast, Reliable)\n       void MulticastOnMissionComplete(APawn* InstigatorPawn, bool bMissionSuccess);" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFPSGameStateBase, nullptr, "MulticastOnMissionComplete", nullptr, nullptr, sizeof(FPSGameStateBase_eventMulticastOnMissionComplete_Parms), Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete_Statics::Function_MetaDataParams)) };
@@ -101,7 +101,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSGameStateBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FPSGame,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFPSGameStateBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete, "MulticastOnMissionComplete" }, // 107999055
+		{ &Z_Construct_UFunction_AFPSGameStateBase_MulticastOnMissionComplete, "MulticastOnMissionComplete" }, // 3163695583
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSGameStateBase_Statics::Class_MetaDataParams[] = {
@@ -139,7 +139,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSGameStateBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSGameStateBase, 3624398523);
+	IMPLEMENT_CLASS(AFPSGameStateBase, 2920616258);
 	template<> FPSGAME_API UClass* StaticClass<AFPSGameStateBase>()
 	{
 		return AFPSGameStateBase::StaticClass();
