@@ -45,10 +45,17 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent,Category= "AI")
 	void OnTargetPointReached();
 
-	UPROPERTY(VisibleAnywhere, Category= "AI")
+	UPROPERTY(EditInstanceOnly, Category= "AI")
 	TArray<class AActor*> TargetPoints; 
 
+	UPROPERTY(EditAnywhere, Category= "AI")
+	bool bPatrol; 
+
+	UPROPERTY(ReplicatedUsing=OnRep_GuardState)
 	EAIState GuardState;
+
+	UFUNCTION()
+	void OnRep_GuardState();
 
 	void SetGuardState(EAIState NewState);
 
@@ -57,7 +64,7 @@ protected:
 	FTimerHandle TimerHandle_ResetOrientation;
 	UFUNCTION(BlueprintCallable)
 	void MoveToTargetPoint();
-
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const;
 
 public:	
 	// Called every frame

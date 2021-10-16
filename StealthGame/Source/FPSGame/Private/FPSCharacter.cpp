@@ -7,6 +7,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/PawnNoiseEmitterComponent.h"
+#include "Net/UnrealNetwork.h"
 
 
 AFPSCharacter::AFPSCharacter()
@@ -32,6 +33,27 @@ AFPSCharacter::AFPSCharacter()
 	NoiseEmitterComponent= CreateDefaultSubobject<UPawnNoiseEmitterComponent>(TEXT("Noise emitter"));
 }
 
+void AFPSCharacter::Tick(float DeltaTime){
+
+	Super::Tick(DeltaTime);
+
+	if(!IsLocallyControlled()){
+
+		FRotator NewRot= CameraComponent->GetRelativeRotation();
+		NewRot.Pitch=RemoteViewPitch*360.f/254.6f;
+		//Look at SerRemoteViewPitch to understand why the transformation
+
+		CameraComponent->SetRelativeRotation(NewRot);
+	}
+
+}
+/* 
+void APawn::SetRemoteViewPitch(float NewRemoteViewPitch)
+{
+	// Compress pitch to 1 byte
+	NewRemoteViewPitch = FRotator::ClampAxis(NewRemoteViewPitch);
+	RemoteViewPitch = (uint8)(NewRemoteViewPitch * 255.f/360.f);
+} */
 
 void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -48,8 +70,7 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 }
 
-
-void AFPSCharacter::Fire()
+void AFPSCharacter::ServerFire_Implementation()
 {
 	// try and fire a projectile
 	if (ProjectileClass)
@@ -64,6 +85,18 @@ void AFPSCharacter::Fire()
 		// spawn the projectile at the muzzle
 		GetWorld()->SpawnActor<AFPSProjectile>(ProjectileClass, MuzzleLocation, MuzzleRotation, ActorSpawnParams);
 	}
+	
+}
+bool AFPSCharacter::ServerFire_Validate()
+{
+
+	return true;
+}
+void AFPSCharacter::Fire()
+{	
+	ServerFire();
+
+
 
 	// try and play the sound if specified
 	if (FireSound)
@@ -101,4 +134,13 @@ void AFPSCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(GetActorRightVector(), Value);
 	}
+}
+void AFPSCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(AFPSCharacter, bIsCarryingObjective);
+	//Different Implementation
+//	DOREPLIFETIME_CONDITION(AFPSCharacter, bIsCarryingObjective,COND_OwnerOnly);
+
 }

@@ -8,6 +8,7 @@
 #include "FPSGameMode.h"
 #include "AIController.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -26,6 +27,8 @@ void AFPSAIGuard::BeginPlay()
 	PawnSensingComp->OnHearNoise.AddDynamic(this,&AFPSAIGuard::OnNoiseHeard);
 	OriginalRotation=GetActorRotation();
 	TargetIndex=0;
+	if(bPatrol && TargetPoints.Num()>0)
+	MoveToTargetPoint();
 }
 	
 
@@ -34,17 +37,21 @@ void AFPSAIGuard::BeginPlay()
 void AFPSAIGuard::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	if(!bPatrol){
+		return;
+	} 
 	if(TargetPoints.Num()>0){
+		
 
-	FVector Delta= GetActorLocation() - TargetPoints[TargetIndex]->GetActorLocation();
-	float DistanceToGoal= Delta.Size();
-
-	if(DistanceToGoal<50.f){
-		TargetIndex++;
-		TargetIndex = TargetIndex%TargetPoints.Num();
-		MoveToTargetPoint();
-	}
+		FVector Delta= GetActorLocation() - TargetPoints[TargetIndex]->GetActorLocation();
+		float DistanceToGoal= Delta.Size();
+		
+		if(DistanceToGoal<50.f){
+			TargetIndex++;
+			TargetIndex = TargetIndex%TargetPoints.Num();
+	
+			MoveToTargetPoint();
+		}
 	}
 
 }
@@ -98,8 +105,21 @@ void AFPSAIGuard::SetGuardState(EAIState NewState)
 	if(NewState==GuardState) return;
 	GuardState=NewState;
 
+	OnRep_GuardState();
+	
+}
+
+void AFPSAIGuard::OnRep_GuardState(){
 	OnStateChanged(GuardState);
 }
+
+void AFPSAIGuard::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(AFPSAIGuard, GuardState);
+}
+
 
 void AFPSAIGuard::MoveToTargetPoint(){
 

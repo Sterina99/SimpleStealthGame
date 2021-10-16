@@ -5,6 +5,7 @@
 #include "FPSCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"
+#include "FPSGameStateBase.h"
 AFPSGameMode::AFPSGameMode()
 {
 	// set default pawn class to our Blueprinted character
@@ -13,12 +14,13 @@ AFPSGameMode::AFPSGameMode()
 
 	// use our custom HUD class
 	HUDClass = AFPSHUD::StaticClass();
+	GameStateClass= AFPSGameStateBase::StaticClass();
 }
 
 void AFPSGameMode::CompleteMission(APawn* InstigatorPawn,bool bHasWon){
 
 	if(InstigatorPawn){
-		InstigatorPawn->DisableInput(nullptr);
+		//InstigatorPawn->DisableInput(nullptr);
 
 	if(SpectatingViewPointClass){
 		TArray<AActor*> ReturnedActors;
@@ -32,9 +34,13 @@ void AFPSGameMode::CompleteMission(APawn* InstigatorPawn,bool bHasWon){
 				PC->SetViewTargetWithBlend(NewViewTarget,0.5f,EViewTargetBlendFunction::VTBlend_Cubic);
 			}
 		}
-	}
+	  }
 	}
 
+	AFPSGameStateBase* GS= GetGameState<AFPSGameStateBase>();
+	if(GS){
+		GS->MulticastOnMissionComplete(InstigatorPawn, bHasWon);
+	}
 	OnMissionCompleted(InstigatorPawn,bHasWon);
 
 	

@@ -50,13 +50,16 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 	UAnimSequence* FireAnimation;
 
-	UPROPERTY(BlueprintReadOnly, Category= "PickUp")
+	UPROPERTY(Replicated,BlueprintReadOnly, Category= "PickUp")
 	bool bIsCarryingObjective=false;
 
 protected:
 	
 	/** Fires a projectile. */
 	void Fire();
+	
+	UFUNCTION(Server,Reliable,WithValidation)
+	void ServerFire();
 
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
@@ -65,6 +68,8 @@ protected:
 	void MoveRight(float Val);
 
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const;
+
 
 public:
 	/** Returns Mesh1P subobject **/
@@ -72,6 +77,8 @@ public:
 
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return CameraComponent; }
+
+	virtual void Tick(float DeltaTime) override;
 
 };
 

@@ -1,0 +1,9 @@
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSGameStateBase.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameStateBase.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+D:\EpicGames\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+D:\EpicGames\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameStateBase.generated.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSGameStateBase.generated.h

@@ -1,10 +1,12 @@
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSAIGuard.h
 D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSBlackHole.h
-D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSCharacter.h
-D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSDwarf.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSGameMode.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSGameStateBase.h
 D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSHUD.h
-D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSObjectiveActor.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSPlayerController.h
 D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSProjectile.h
 D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPS_ExtractionZone.h
 D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPS_LaunchPad.h
-D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSGameMode.h
-D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSAIGuard.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSObjectiveActor.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSCharacter.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSDwarf.h

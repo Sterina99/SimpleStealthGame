@@ -1,0 +1,3 @@
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Source\FPSGame\Public\FPSPlayerController.h
+D:\Private\LearningC++\SimpleStealthGame\StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSPlayerController.generated.h

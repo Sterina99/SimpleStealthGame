@@ -20,6 +20,7 @@ enum class EAIState : uint8;
 #define StealthGame_Source_FPSGame_Public_FPSAIGuard_h_20_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execMoveToTargetPoint); \
+	DECLARE_FUNCTION(execOnRep_GuardState); \
 	DECLARE_FUNCTION(execResetOrientation); \
 	DECLARE_FUNCTION(execOnNoiseHeard); \
 	DECLARE_FUNCTION(execOnPawnSeen);
@@ -28,6 +29,7 @@ enum class EAIState : uint8;
 #define StealthGame_Source_FPSGame_Public_FPSAIGuard_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execMoveToTargetPoint); \
+	DECLARE_FUNCTION(execOnRep_GuardState); \
 	DECLARE_FUNCTION(execResetOrientation); \
 	DECLARE_FUNCTION(execOnNoiseHeard); \
 	DECLARE_FUNCTION(execOnPawnSeen);
@@ -47,7 +49,13 @@ private: \
 	friend struct Z_Construct_UClass_AFPSAIGuard_Statics; \
 public: \
 	DECLARE_CLASS(AFPSAIGuard, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPSGame"), NO_API) \
-	DECLARE_SERIALIZER(AFPSAIGuard)
+	DECLARE_SERIALIZER(AFPSAIGuard) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		GuardState=NETFIELD_REP_START, \
+		NETFIELD_REP_END=GuardState	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define StealthGame_Source_FPSGame_Public_FPSAIGuard_h_20_INCLASS \
@@ -56,7 +64,13 @@ private: \
 	friend struct Z_Construct_UClass_AFPSAIGuard_Statics; \
 public: \
 	DECLARE_CLASS(AFPSAIGuard, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPSGame"), NO_API) \
-	DECLARE_SERIALIZER(AFPSAIGuard)
+	DECLARE_SERIALIZER(AFPSAIGuard) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		GuardState=NETFIELD_REP_START, \
+		NETFIELD_REP_END=GuardState	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define StealthGame_Source_FPSGame_Public_FPSAIGuard_h_20_STANDARD_CONSTRUCTORS \
@@ -85,7 +99,9 @@ public: \
 
 #define StealthGame_Source_FPSGame_Public_FPSAIGuard_h_20_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__PawnSensingComp() { return STRUCT_OFFSET(AFPSAIGuard, PawnSensingComp); } \
-	FORCEINLINE static uint32 __PPO__TargetPoints() { return STRUCT_OFFSET(AFPSAIGuard, TargetPoints); }
+	FORCEINLINE static uint32 __PPO__TargetPoints() { return STRUCT_OFFSET(AFPSAIGuard, TargetPoints); } \
+	FORCEINLINE static uint32 __PPO__bPatrol() { return STRUCT_OFFSET(AFPSAIGuard, bPatrol); } \
+	FORCEINLINE static uint32 __PPO__GuardState() { return STRUCT_OFFSET(AFPSAIGuard, GuardState); }
 
 
 #define StealthGame_Source_FPSGame_Public_FPSAIGuard_h_17_PROLOG \

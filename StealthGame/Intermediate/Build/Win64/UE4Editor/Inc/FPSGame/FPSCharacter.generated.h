@@ -14,15 +14,35 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FPSGAME_FPSCharacter_generated_h
 
 #define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_SPARSE_DATA
-#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS
-#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS
+#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS \
+	virtual bool ServerFire_Validate(); \
+	virtual void ServerFire_Implementation(); \
+ \
+	DECLARE_FUNCTION(execServerFire);
+
+
+#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual bool ServerFire_Validate(); \
+	virtual void ServerFire_Implementation(); \
+ \
+	DECLARE_FUNCTION(execServerFire);
+
+
+#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_EVENT_PARMS
+#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_CALLBACK_WRAPPERS
 #define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSCharacter(); \
 	friend struct Z_Construct_UClass_AFPSCharacter_Statics; \
 public: \
 	DECLARE_CLASS(AFPSCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPSGame"), NO_API) \
-	DECLARE_SERIALIZER(AFPSCharacter)
+	DECLARE_SERIALIZER(AFPSCharacter) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		bIsCarryingObjective=NETFIELD_REP_START, \
+		NETFIELD_REP_END=bIsCarryingObjective	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS \
@@ -31,7 +51,13 @@ private: \
 	friend struct Z_Construct_UClass_AFPSCharacter_Statics; \
 public: \
 	DECLARE_CLASS(AFPSCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPSGame"), NO_API) \
-	DECLARE_SERIALIZER(AFPSCharacter)
+	DECLARE_SERIALIZER(AFPSCharacter) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		bIsCarryingObjective=NETFIELD_REP_START, \
+		NETFIELD_REP_END=bIsCarryingObjective	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_STANDARD_CONSTRUCTORS \
@@ -65,13 +91,17 @@ public: \
 	FORCEINLINE static uint32 __PPO__NoiseEmitterComponent() { return STRUCT_OFFSET(AFPSCharacter, NoiseEmitterComponent); }
 
 
-#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_17_PROLOG
+#define StealthGame_Source_FPSGame_Public_FPSCharacter_h_17_PROLOG \
+	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_EVENT_PARMS
+
+
 #define StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_SPARSE_DATA \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS \
+	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_CALLBACK_WRAPPERS \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_STANDARD_CONSTRUCTORS \
 public: \
@@ -84,6 +114,7 @@ public: \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_SPARSE_DATA \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_CALLBACK_WRAPPERS \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS_NO_PURE_DECLS \
 	StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_ENHANCED_CONSTRUCTORS \
 private: \

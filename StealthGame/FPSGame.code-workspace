@@ -15,7 +15,10 @@
 			"${default}",
 			"D:\\Private\\LearningC++\\SimpleStealthGame\\StealthGame\\Intermediate\\Build\\Win64\\UE4Editor\\Development\\FPSGame\\Definitions.FPSGame.h",
 			"D:\\Private\\LearningC++\\SimpleStealthGame\\StealthGame\\Intermediate\\Build\\Win64\\FPSGameEditor\\Development\\Engine\\SharedPCH.Engine.h"
-		]
+		],
+		"files.associations": {
+			"random": "cpp"
+		}
 	},
 	"extensions": {
 		"recommendations": [
